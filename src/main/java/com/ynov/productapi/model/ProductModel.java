@@ -1,6 +1,9 @@
 package com.ynov.productapi.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "products")
@@ -12,6 +15,15 @@ public class ProductModel {
     private String name;
     private String description;
     private Integer cost;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "id_product")
+    private List<CommentModel> comments = new ArrayList<>();
+
 
     public Integer getId() { return id; }
 
