@@ -1,4 +1,4 @@
-package com.ynov.productapi;
+package com.ynov.productapi.controller;
 
 import com.ynov.productapi.model.ProductModel;
 import com.ynov.productapi.repository.ProductRepository;

@@ -40,4 +40,8 @@ public class ProductModel {
     public Integer getCost() { return cost; }
 
     public void setCost(Integer cost) { this.cost = cost; }
+
+    public List<CommentModel> getComments() { return comments;}
+
+    public void setComments(List<CommentModel> comments) { this.comments = comments;}
 }
