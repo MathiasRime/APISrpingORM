@@ -47,4 +47,23 @@ public class ProductController {
         return productService.upsert(product);
     }
 
+    @PatchMapping("/product")
+    public ProductModel partialReplaceProduct(@RequestBody ProductModel product){
+
+        ProductModel existingProduct = productService.getProduct(product.getId()).get();
+
+        if(product.getName() != null && !product.getName().equals(existingProduct.getName())){
+            existingProduct.setName(product.getName());
+        }
+
+        if(product.getDescription() != null && !product.getDescription().equals(existingProduct.getDescription())){
+            existingProduct.setDescription(product.getDescription());
+        }
+
+        if(product.getCost() != null && !product.getCost().equals(existingProduct.getCost())){
+            existingProduct.setCost(product.getCost());
+        }
+        return productService.upsert(existingProduct);
+    }
+
 }

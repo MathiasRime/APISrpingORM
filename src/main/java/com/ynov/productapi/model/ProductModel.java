@@ -11,7 +11,7 @@ public class ProductModel {
     private Integer id;
     private String name;
     private String description;
-    private int cost;
+    private Integer cost;
 
     public Integer getId() { return id; }
 
@@ -25,7 +25,7 @@ public class ProductModel {
 
     public void setDescription(String description) { this.description = description; }
 
-    public int getCost() { return cost; }
+    public Integer getCost() { return cost; }
 
-    public void setCost(int cost) { this.cost = cost; }
+    public void setCost(Integer cost) { this.cost = cost; }
 }
