@@ -66,4 +66,9 @@ public class ProductController {
         return productService.upsert(existingProduct);
     }
 
+    @GetMapping("/product/filter/{name}")
+    public Iterable<ProductModel> getProductByName(@PathVariable String name){
+        return productService.getProductByName(name);
+    }
+
 }

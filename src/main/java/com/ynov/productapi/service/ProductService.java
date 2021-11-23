@@ -27,4 +27,8 @@ public class ProductService {
     public void deleteProduct(Integer id){
         productRepository.deleteById(id);
     }
+
+    public Iterable<ProductModel> getProductByName(String name){
+        return productRepository.findByName(name);
+    }
 }
