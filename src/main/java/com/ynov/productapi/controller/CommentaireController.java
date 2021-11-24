@@ -26,9 +26,12 @@ public class CommentaireController {
         return productService.upsert(existingProduct);
     }
 
-    @DeleteMapping("/commentaire/{id}")
-    public void deleteCommentaire(@PathVariable("id") Integer id){
-        commentService.deleteComment(id);
-    }
 
+    @DeleteMapping("/comment/{id_comment}/{id_product}")
+    public void deleteCommentaire(@PathVariable("id_comment") Integer id_comment,@PathVariable("id_product") Integer id_product){
+        CommentModel c = commentService.getComment(id_comment).get();
+        ProductModel p = productService.getProduct(1).get();
+        p.getComments().remove(c);
+        p = productService.upsert(p);
+    }
 }
