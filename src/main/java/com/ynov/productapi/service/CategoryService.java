@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -16,9 +17,19 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private CategoryTransformer categoryTransformer;
+
     public List<CategoryFull> getCategories() {
-        Iterable<CategoryModel> categories = categoryRepository.findAll();
-        CategoryTransformer transformer = new CategoryTransformer();
-        return transformer.transform(categories);
+        return categoryTransformer.transform(categoryRepository.findAll());
     }
+
+    public Optional<CategoryModel> getCategory(Integer idCategory) {
+        return categoryRepository.findById(idCategory);
+    }
+
+    public CategoryModel saveCategory(CategoryModel category) {
+        return categoryRepository.save(category);
+    }
+
 }

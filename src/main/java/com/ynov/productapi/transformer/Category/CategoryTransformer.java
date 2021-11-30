@@ -3,10 +3,12 @@ package com.ynov.productapi.transformer.Category;
 import com.ynov.productapi.model.CategoryModel;
 import com.ynov.productapi.model.ProductModel;
 import com.ynov.productapi.transformer.Product.ProductLight;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CategoryTransformer {
 
     public CategoryFull transform(CategoryModel category){
