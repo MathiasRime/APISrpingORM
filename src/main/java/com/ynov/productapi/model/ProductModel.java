@@ -25,6 +25,14 @@ public class ProductModel {
     private List<CommentModel> comments = new ArrayList<>();
 
 
+
+    @ManyToMany(
+            mappedBy = "products"
+    )
+    private List<CategoryModel> categories = new ArrayList<>();
+
+
+
     public Integer getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
@@ -42,6 +50,10 @@ public class ProductModel {
     public void setCost(Integer cost) { this.cost = cost; }
 
     public List<CommentModel> getComments() { return comments;}
+
+    public List<CategoryModel> getCategories() { return categories; }
+
+    public void setCategories(List<CategoryModel> categories) { this.categories = categories; }
 
     public void setComments(List<CommentModel> comments) { this.comments = comments;}
 }

@@ -1,12 +1,13 @@
 package com.ynov.productapi.controller;
 
 
-import com.ynov.productapi.model.CategoryModel;
 import com.ynov.productapi.service.CategoryService;
+import com.ynov.productapi.transformer.Category.CategoryFull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class CategoryController {
@@ -16,5 +17,5 @@ public class CategoryController {
 
 
     @GetMapping ("/categories")
-    public Iterable<CategoryModel> getCategories(){  return categoryService.getCategories();  }
+    public List<CategoryFull> getCategories(){  return categoryService.getCategories();  }
 }
